@@ -1,1 +1,23 @@
-<p>suche-schlagwoerter works!</p>
+<div class="grid grid-cols-6">
+  <label>Art</label>
+  <div class="flex flex-col col-span-5 items-start gap-1">
+    <div>
+      <input
+        type="checkbox"
+        id="javaScriptInput"
+        [(ngModel)]="javascript"
+        (change)="onChangeJavascript($event)"
+      >
+      <label class="ml-1" for="javaScriptInput">JavaScript</label>
+    </div>
+    <div>
+      <input
+        type="checkbox"
+        id="typescriptInput"
+        [(ngModel)]="typescript"
+        (change)="onChangeTypescript($event)"
+      />
+      <label class="ml-1" for="typescriptInput">TypeScript</label>
+    </div>
+  </div>
+</div>
