@@ -1,1 +1,10 @@
-<p>suche-titel works!</p>
+<div class="grid grid-cols-6">
+  <label for="titleInput">Titel</label>
+  <input (blur)="onBlur()"
+         [(ngModel)]="titel"
+         class=" col-span-5 w-full ring-1 rounded "
+         id="titleInput"
+         name="titel"
+         placeholder="Den Titel oder einen anderen Teil davon eingeben"
+  >
+</div>

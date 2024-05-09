@@ -1,4 +1,17 @@
-<div class="pt-3 flex justify-items-center items-center">
+<nav class="pt-3 flex md:justify-start items-center md:gap-7 justify-between w-[97%]">
   <app-logo></app-logo>
-  <app-nav></app-nav>
-</div>
+  <app-nav
+    class=" nav-links md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 {{menu}} top-[-100%] md:w-auto w-full flex items-center px-3">
+  </app-nav>
+  <svg (click)="toggleMenu()"
+       class="w-10 h-10 border-gray-800 border-2 rounded cursor-pointer md:hidden"
+       fill="none"
+       stroke="currentColor"
+       stroke-width="1.5"
+       viewBox="0 0 24 24"
+       xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+
+</nav>
+
