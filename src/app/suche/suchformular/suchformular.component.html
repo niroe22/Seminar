@@ -1,4 +1,4 @@
-<div class="border-2 border-gray-400 rounded-lg mt-7">
+<section class="border-2 border-gray-400 rounded-lg mt-7">
   <div class="bg-gray-400 font-bold pl-3 py-3 rounded-t-md flex gap-2">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
          xmlns="http://www.w3.org/2000/svg">
@@ -7,8 +7,8 @@
     </svg>
     <span>Eingabe der Suchkriterien</span>
   </div>
-  <div>
-    <form class="p-3 flex flex-col gap-y-5">
+  <div class="mt-5">
+    <form (submit)="onSubmit()" class="p-3 flex flex-col gap-y-5">
       <app-suche-titel (titel$)="setTitel($event)"></app-suche-titel>
       <app-suche-rating (rating$)="setRating($event)"></app-suche-rating>
       <app-suche-art (art$)="setArt($event)"></app-suche-art>
@@ -40,4 +40,4 @@
       </div>
     </form>
   </div>
-</div>
+</section>

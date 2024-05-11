@@ -1,1 +1,5 @@
-<p>suchergebnis works!</p>
+@if (buecher().length) {
+  <app-gefundene-buecher [buecher]="buecher()"></app-gefundene-buecher>
+} @else {
+  <app-error-message [text]="errorMsg()"></app-error-message>
+}

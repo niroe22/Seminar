@@ -9,6 +9,7 @@ import { SuchergebnisComponent } from "./suchergebnis/suchergebnis.component";
 import { SuchformularComponent } from "./suchformular/suchformular.component";
 import log from "loglevel";
 import { HeaderComponent } from "../layout/header/header.component";
+import { WaitingComponent } from "../shared/waiting.component";
 
 @Component({
   selector: "app-suche",
@@ -18,7 +19,8 @@ import { HeaderComponent } from "../layout/header/header.component";
     NgIf,
     HeaderComponent,
     SuchformularComponent,
-    SuchergebnisComponent
+    SuchergebnisComponent,
+    WaitingComponent
   ],
   standalone: true
 })

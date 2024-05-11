@@ -1,21 +1,21 @@
-import { Component, Output } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { type BuchArt } from '../../shared/buch';
-import {from, Subject} from 'rxjs';
-import {SucheArtComponent} from "../suche-art/suche-art.component";
-import {SucheRatingComponent} from "../suche-rating/suche-rating.component";
-import {SucheSchlagwoerterComponent} from "../suche-schlagwoerter/suche-schlagwoerter.component";
-import  {SucheTitelComponent} from "../suche-titel/suche-titel.component";
-import { type Suchkriterien } from '../../shared/buchRead.service';
-import { fadeIn } from '../../shared/animations';
-import log from 'loglevel';
+import { Component, Output } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { type BuchArt } from "../../shared/buch";
+import { Subject } from "rxjs";
+import { SucheArtComponent } from "../suche-art/suche-art.component";
+import { SucheRatingComponent } from "../suche-rating/suche-rating.component";
+import { SucheSchlagwoerterComponent } from "../suche-schlagwoerter/suche-schlagwoerter.component";
+import { SucheTitelComponent } from "../suche-titel/suche-titel.component";
+import { type Suchkriterien } from "../../shared/buchRead.service";
+import { fadeIn } from "../../shared/animations";
+import log from "loglevel";
 
 /**
  * Komponente f&uuml;r den CSS-Selektor <code>app-suchformular</code>
  */
 @Component({
-  selector: 'app-suchformular',
-  templateUrl: './suchformular.component.html',
+  selector: "app-suchformular",
+  templateUrl: "./suchformular.component.html",
   animations: [fadeIn],
   imports: [
     FormsModule,
@@ -23,9 +23,9 @@ import log from 'loglevel';
     SucheArtComponent,
     SucheRatingComponent,
     SucheSchlagwoerterComponent,
-    SucheTitelComponent,
+    SucheTitelComponent
   ],
-  standalone: true,
+  standalone: true
 })
 export class SuchformularComponent {
   // Event Binding: <app-suchformular (suchkriterien$)="myFunc($event)">
@@ -40,42 +40,42 @@ export class SuchformularComponent {
   @Output()
   protected readonly suchkriterien$ = new Subject<Suchkriterien>();
 
-  #titel = '';
+  #titel = "";
 
   #rating: number | undefined = undefined;
 
-  #art: BuchArt | '' = '';
+  #art: BuchArt | "" = "";
 
   #javascript = false;
 
   #typescript = false;
 
   constructor() {
-    log.debug('SuchformularComponent()');
+    log.debug("SuchformularComponent()");
   }
 
   protected setTitel(titel: string) {
-    log.debug('SuchformularComponent.setTitel', titel);
+    log.debug("SuchformularComponent.setTitel", titel);
     this.#titel = titel;
   }
 
   protected setRating(rating: number | undefined) {
-    log.debug('SuchformularComponent.setRating', rating);
+    log.debug("SuchformularComponent.setRating", rating);
     this.#rating = rating;
   }
 
   protected setArt(art: string) {
-    log.debug('SuchformularComponent.setArt', art);
+    log.debug("SuchformularComponent.setArt", art);
     this.#art = art as BuchArt;
   }
 
   protected setJavascript(isChecked: boolean) {
-    log.debug('SuchformularComponent.setJavascript', isChecked);
+    log.debug("SuchformularComponent.setJavascript", isChecked);
     this.#javascript = isChecked;
   }
 
   protected setTypescript(isChecked: boolean) {
-    log.debug('SuchformularComponent.setTypescript', isChecked);
+    log.debug("SuchformularComponent.setTypescript", isChecked);
     this.#typescript = isChecked;
   }
 
@@ -84,13 +84,19 @@ export class SuchformularComponent {
    */
   protected onSubmit() {
     log.debug(
-      'SuchformularComponent.onSubmit: titel / rating / art / javascript / typescript',
+      "SuchformularComponent.onSubmit: titel / rating / art / javascript / typescript",
       this.#titel,
       this.#rating,
       this.#art,
       this.#javascript,
-      this.#typescript,
+      this.#typescript
     );
+    console.log("SuchformularComponent.onSubmit: titel / rating / art / javascript / typescript: ",
+      this.#titel,
+      this.#rating,
+      this.#art,
+      this.#javascript,
+      this.#typescript);
 
     this.suchkriterien$.next({
       titel: this.#titel,
@@ -98,8 +104,8 @@ export class SuchformularComponent {
       art: this.#art,
       schlagwoerter: {
         javascript: this.#javascript,
-        typescript: this.#typescript,
-      },
+        typescript: this.#typescript
+      }
     });
   }
 }

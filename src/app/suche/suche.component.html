@@ -1,5 +1,14 @@
 <app-header></app-header>
-<app-suchformular></app-suchformular>
-<section class=" mt-2">
-  <app-suchergebnis [buecher]="buecher"></app-suchergebnis>
-</section>
+@defer {
+  <app-suchformular (suchkriterien$)="suchen($event)"></app-suchformular>
+
+  <section class=" mt-2">
+    @if (waiting) {
+      <app-waiting></app-waiting>
+    } @else {
+      <app-suchergebnis [buecher]="buecher" [errorMsg]="errorMsg"></app-suchergebnis>
+    }
+  </section>
+} @loading (after 150ms; minimum 150ms) {
+  <app-waiting></app-waiting>
+}
