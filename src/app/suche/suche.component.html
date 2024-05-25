@@ -1,13 +1,10 @@
-@defer {
-  <app-suchformular (suchkriterien$)="suchen($event)"></app-suchformular>
+<app-suchformular (suchkriterien$)="suchen($event)"></app-suchformular>
 
-  <section class=" mt-2">
-    @if (waiting) {
-      <app-waiting></app-waiting>
-    } @else {
-      <app-suchergebnis [buecher]="buecher" [errorMsg]="errorMsg"></app-suchergebnis>
-    }
-  </section>
-} @loading (after 150ms; minimum 150ms) {
-  <app-waiting></app-waiting>
-}
+<section class=" mt-2">
+  @if (waiting) {
+    <app-waiting></app-waiting>
+  } @else {
+    <app-suchergebnis [buecher]="buecher" [errorMsg]="errorMsg"></app-suchergebnis>
+  }
+</section>
+
